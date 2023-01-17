@@ -110,7 +110,7 @@
         function login(){
             $(".alert-warning").hide();
 
-            publicKey= web3.currentProvider.selectedAddress;
+            publicKey= "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69"; /*web3.currentProvider.selectedAddress;*/
             console.log(publicKey);
             contractInstance.get_patient_list(function(error, result){
                 if(!error){
