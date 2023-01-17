@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>SwasthyaChain</title>
+    <title>Airline Records</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -89,7 +89,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">SwasthyaChain</a>
+                    <a class="navbar-brand" href="#">Aicraft Records</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -107,18 +107,18 @@
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="text-center">Personal Information</h3>
+                    <h3 class="text-center">Aicraft Information</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-offset-1 col-sm-10">
                             <table class="table">
                                 <tr>
-                                    <th>Name:</th>
+                                    <th>Aicraft Name:</th>
                                     <td id="name"></td>
                                 </tr>
                                 <tr>
-                                    <th>Age:</th>
+                                    <th>Aicraft Registry Number</th>
                                     <td id="age"></td>
                                 </tr>
                             </table>
@@ -140,7 +140,7 @@
             
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="text-center">Share your Medical Record</h3>
+                    <h3 class="text-center">Share this Aircraft Information</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -152,7 +152,7 @@
                     
                     <form class="form-horizontal" action="/action_page.php">
                         <div class="form-group"> 
-                            <label for="permitDoctorList" class="control-label col-sm-2">Doctor:</label>
+                            <label for="permitDoctorList" class="control-label col-sm-2">Airline:</label>
                             <div class="col-sm-8">
                                 <select class="form-control" id="permitDoctorList">
                                     <option selected disabled>-- Please Select --</option>
@@ -168,7 +168,7 @@
             
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="text-center">Current EMR access holders</h3>
+                    <h3 class="text-center">Current Aicraft Information access holders</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -180,7 +180,7 @@
                         <div class="col-sm-offset-1 col-sm-10">
                             <table id="accessDoc" class="table table-hover">
                                 <tr>
-                                    <th>Doctor</th>
+                                    <th>Airline</th>
                                     <th class="publicKeyDoctor">Public Key</th>
                                     <th>Revoke access</th>
                                 </tr>
@@ -310,7 +310,7 @@
                 console.error(error);
         });
 
-        // print out the doctors who have access
+        // print out the Airlines who have access
         var doctorAddressList = 0;
         contractInstance.get_accessed_doctorlist_for_patient(key, {gas: 1000000}, function(error, result){
             if(!error){
