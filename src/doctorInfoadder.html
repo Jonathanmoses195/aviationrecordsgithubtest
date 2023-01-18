@@ -242,8 +242,8 @@ Public Key: ${publicKey}
                 // check if the public key matches
                 if (publicKey.toLowerCase() == DoctorList[i]) {
                     // if it does, add the name and age to the DoctorList
-                    DoctorInfo[i].name = $("#name").val();
-                    DoctorInfo[i].age = $("#age").val();
+                    doctorInfo[i].name = $("#name").val();
+                    doctorInfo[i].age = $("#age").val();
                     location.href = "./doctor.html";
                     break;
                 }
