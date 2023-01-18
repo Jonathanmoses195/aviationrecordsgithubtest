@@ -151,7 +151,12 @@
             if (web3.currentProvider.selectedAddress.toLowerCase() === publicKey.toLowerCase()) {
             location.href = "./doctor.html";
                 }
-        }
+            else {
+                console.log(error);
+                console.log("Invalid User!");
+                $(".alert-warning").show()
+                 }
+                }
      
         
     </script>
