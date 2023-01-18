@@ -123,7 +123,7 @@ function addAgent(){
     var name = $("#name").val();
     var age = $("#age").val();
 
-    var doctorList = contractInstance.add_agent(name, age);
+    var doctorInfo = contractInstance.add_agent(name, age);
     doctorList.send({from: account, gas: 1000000}, function(error, transactionHash){
         if(!error) {
             console.log(transactionHash);
