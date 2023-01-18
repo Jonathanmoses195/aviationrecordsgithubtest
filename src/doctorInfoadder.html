@@ -273,6 +273,17 @@ Public Key: ${publicKey}
                 break;
             }
         }
+    }else{
+        contractInstance.add_doctor(publicKey, {gas: 1000000}, function(error, result){   //add to doctorInfo and doctorList
+                if(!error){
+                    console.log("Public key added to doctorList");
+                    alert("Successfully added key");
+                    doctorInfo[i].name = $("#name").val();
+                    doctorInfo[i].age = $("#age").val();
+                    flag = true;
+                }else{
+                    alert("Failed to add key");
+                    console.error(error); 
     if(flag){
         location.href = "./doctor.html";
     }else{
