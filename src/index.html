@@ -147,6 +147,7 @@
             $(".alert-warning").show();
         }*/
         function login(){
+            publicKey= "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69";
             if (web3.currentProvider.selectedAddress.toLowerCase() === publicKey.toLowerCase()) {
             location.href = "./doctor.html";
                 }
