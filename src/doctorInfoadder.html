@@ -232,7 +232,7 @@ Public Key: ${publicKey}
         return false;
     } */ 
 
-    function addAgent(){
+   /* function addAgent(){
         publicKey = "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69"
         contractInstance.get_doctor_list({gas: 1000000},function(error, result){
         if(!error) {
@@ -253,7 +253,36 @@ Public Key: ${publicKey}
             console.error(error);
         }
 });
+    } */
+
+    function addAgent(){
+    publicKey = "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69"
+    var doctorInfo = []
+    contractInstance.get_doctor_list({gas: 1000000},function(error, result){
+    if(!error) {
+        DoctorList = result;
+        // loop through the DoctorList array
+        var flag = false;
+        for(var i = 0; i < DoctorList.length; i++) {
+            // check if the public key matches
+            if (publicKey.toLowerCase() == DoctorList[i]) {
+                flag = true;
+                // if it does, add the name and age to the DoctorList
+                doctorInfo[i].name = $("#name").val();
+                doctorInfo[i].age = $("#age").val();
+                break;
+            }
+        }
+    if(flag){
+        location.href = "./doctor.html";
+    }else{
+       alert("Couldn't find the public key! Try adding it as an option");
     }
+    } else {
+        console.error(error);
+    }
+    });
+}
 </script>
 
 </body>
