@@ -126,6 +126,7 @@ function addAgent(){
     var doctorInfo = contractInstance.add_agent(name, age);
     doctorList.send({from: account, gas: 1000000}, function(error, transactionHash){
         if(!error) {
+            console.log(transactionHash);
             alert("Agent added successfully!");
         } else {
             console.log(error);
