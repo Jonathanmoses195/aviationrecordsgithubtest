@@ -259,43 +259,37 @@ Public Key: ${publicKey}
     publicKey = "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69"
     var doctorInfo = []
     contractInstance.get_doctor_list({gas: 1000000},function(error, result){
-    if(!error) {
-        doctorList = result;
-        // loop through the DoctorList array
-        var flag = false;
-        for(var i = 0; i < doctorList.length; i++) {
-            // check if the public key matches
-            if (publicKey.toLowerCase() == doctorList[i]) {
-                flag = true;
-                // if it does, add the name and age to the DoctorList
-                doctorInfo[i].name = $("#name").val();
-                doctorInfo[i].age = $("#age").val();
-                break;
-            }
-        }
-    }else{
-        contractInstance.add_doctor(publicKey, {gas: 1000000}, function(error, result){   //add to doctorInfo and doctorList
-                if(!error){
-                    console.log("Public key added to doctorList");
-                    alert("Successfully added key");
-                    doctorInfo[i].name = $("#name").val();
-                    doctorInfo[i].age = $("#age").val();
+        if(!error) {
+            var doctorList = result;
+            var flag = false;
+            for(var i = 0; i < doctorList.length; i++) {
+                if (publicKey.toLowerCase() == doctorList[i]) {
                     flag = true;
-                }else{
-                    alert("Failed to add key");
-                    console.error(error); 
+                    doctorInfo[i] = { name: $("#name").val(), age: $("#age").val() };
+                    break;
                 }
-        });
-    if(flag){
-        location.href = "./doctor.html";
-    }else{
-       alert("Couldn't find the public key! Try adding it as an option");
-    }
-    } else {
-        console.error(error);
-    }
+            }
+            if(flag){
+                location.href = "./doctor.html";
+            }else{
+                contractInstance.add_doctor(publicKey, {gas: 1000000}, function(error, result){   //add to doctorInfo and doctorList
+                    if(!error){
+                        console.log("Public key added to doctorList");
+                        alert("Successfully added key");
+                        doctorInfo[i] = { name: $("#name").val(), age: $("#age").val() };
+                        flag = true;
+                    }else{
+                        alert("Failed to add key");
+                        console.error(error); 
+                    }
+                });
+            }
+        } else {
+            console.error(error);
+        }
     });
 }
+
 </script>
 
 </body>
