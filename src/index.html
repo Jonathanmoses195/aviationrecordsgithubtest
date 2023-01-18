@@ -146,7 +146,7 @@
             console.log("Invalid User!");
             $(".alert-warning").show();
         }*/
-        login(){
+        function login(){
             if (web3.currentProvider.selectedAddress.toLowerCase() === publicKey.toLowerCase()) {
             location.href = "./doctor.html";
                 }
