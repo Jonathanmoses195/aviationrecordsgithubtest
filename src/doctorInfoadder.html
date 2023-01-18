@@ -120,12 +120,21 @@
 
 
 function addAgent(){
-    var doctorInfo = [];
-    var newDoctor = { name: $("#name").val(), age: $("#age").val() };
-    doctorInfo.push(newDoctor);
-    console.log(doctorInfo);
-    location.replace("./doctor.html");
+    var name = $("#name").val();
+    var age = $("#age").val();
+
+    var doctorList = contractInstance.methods.add_agent(name, age);
+    doctorList.send({from: account, gas: 1000000}, function(error, transactionHash){
+        if(!error) {
+            console.log(transactionHash);
+            alert("Agent added successfully!");
+        } else {
+            console.log(error);
+            alert("Error adding agent. Please check the console for more details.");
+        }
+    });
 }
+
 </script>
 
 </body>
