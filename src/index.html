@@ -150,12 +150,9 @@
             publicKey= "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69";
             if (web3.currentProvider.selectedAddress.toLowerCase() === publicKey.toLowerCase()) {
             location.href = "./doctor.html";
-                }
-            else {
-                console.log(error);
-                console.log("Invalid User!");
-                $(".alert-warning").show()
-                 }
+                } else {
+    alert("Error: The public key in your code does not match the public key of your MetaMask account.");
+                  }
                 }
      
         
