@@ -255,7 +255,7 @@ Public Key: ${publicKey}
 });
     } */
 
-    function addAgent(){
+    /* function addAgent(){
     publicKey = "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69"
     var doctorInfo = []
     contractInstance.get_doctor_list({gas: 1000000},function(error, result){
@@ -288,8 +288,12 @@ Public Key: ${publicKey}
             console.error(error);
         }
     });
+} */
+function addAgent(){
+var doctorInfo = []
+doctorInfo[i] = { name: $("#name").val(), age: $("#age").val() };
+                    break;
 }
-
 </script>
 
 </body>
