@@ -233,7 +233,7 @@ Public Key: ${publicKey}
     } */ 
 
     function addAgent(){
-        publicKey = web3.currentProvider.selectedAddress
+        publicKey = "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69"
         contractInstance.get_doctor_list({gas: 1000000},function(error, result){
         if(!error) {
             DoctorList = result;
@@ -249,7 +249,7 @@ Public Key: ${publicKey}
                 }
             }
         } else {
-            alert("Couldn't find the public key! Try adding it as an option")
+            alert("Couldn't find the public key! Try adding it as an option");
             console.error(error);
         }
 });
