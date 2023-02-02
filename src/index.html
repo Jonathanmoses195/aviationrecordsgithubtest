@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SwasthyaChain</title>
+    <title>Aircraft Records</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">SwasthyaChain</a>
+                <a class="navbar-brand" href="#">Aircraft Records</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,7 +67,7 @@
     <!-- Page Content -->
     <div class="container">
         <div class="panel panel-default">
-            <div class="panel-heading"><h3 class="text-center">Welcome to SwasthyaChain</h3></div>
+            <div class="panel-heading"><h3 class="text-center">Welcome to the Aircraft Records Database!</h3></div>
             <div class="panel-body">
                 <div class="row">
                     <div class="alert alert-warning col-sm-8 col-sm-offset-2" style="display: none;">
@@ -107,10 +107,10 @@
     });
 
         connect();    
-        function login(){
+        /*function login(){
             $(".alert-warning").hide();
 
-            publicKey= web3.currentProvider.selectedAddress;
+            publicKey= "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69"; /*web3.currentProvider.selectedAddress;
             console.log(publicKey);
             contractInstance.get_patient_list(function(error, result){
                 if(!error){
@@ -145,8 +145,15 @@
             
             console.log("Invalid User!");
             $(".alert-warning").show();
-        }
-
+        }*/
+        function login(){
+            publicKey= "0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69";
+            if (web3.currentProvider.selectedAddress.toLowerCase() === publicKey.toLowerCase()) {
+            location.href = "./doctor.html";
+                } else {
+    alert("Error: The public key in your code does not match the public key of your MetaMask account.");
+                  }
+                }
      
         
     </script>
