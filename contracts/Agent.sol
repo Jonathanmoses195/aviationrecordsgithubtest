@@ -163,6 +163,5 @@ contract Agent {
     function set_hash(address paddr, string memory _hash) internal {
         patientInfo[paddr].record = _hash;
     }
-
 }
 
