@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     
-    <title>Airline Records</title>
+    <title>SwasthyaChain</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -89,7 +89,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Aircraft Records</a>
+                    <a class="navbar-brand" href="#">SwasthyaChain</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -107,49 +107,25 @@
         <div class="container">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="text-center">Aircraft Information</h3>
+                    <h3 class="text-center">Personal Information</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-offset-1 col-sm-10">
                             <table class="table">
                                 <tr>
-                                    <th>Aircraft Name:</th>
-                                    <td>Boeing 787-10 Dreamliner</td>
+                                    <th>Name:</th>
                                     <td id="name"></td>
                                 </tr>
                                 <tr>
-                                    <th>Aircraft Registry Number</th>
-                                    <td>9V-SCO</td>
+                                    <th>Age:</th>
                                     <td id="age"></td>
-                                </tr>
-                                <tr>
-                                    <th>Aircraft Age in years</th>
-                                    <td>3.2</td>
-                                    <td id="age"></td>
-                                </tr>
-                                <tr>
-                                    <th>Flight Hours</th>
-                                    <td>7800</td>
-                                    <td id="age"></td>
-                                </tr>
-                                <tr>
-                                    <th>A check - Last Completed</th>
-                                    <td>10 December 2022</td>
-                                </tr>
-                                <tr>
-                                    <th>C check - Last Completed</th>
-                                    <td>5 June 2022</td>
-                                </tr>
-                                <tr>
-                                    <th>D check - Last Completed</th>
-                                    <td>Never</td>
                                 </tr>
                             </table>
                             
                             <div class="text-center">
-                                 <!--   <h5>Your records are stored here: http://localhost:8080/ipfs/<span id="recordsHash"></span></h5> !-->
-                             <!--   <button type="submit" class="btn btn-info btn-lg" onclick="showRecords(this)">View medical records</button> !-->
+                                    <h5>Your records are stored here: http://localhost:8080/ipfs/<span id="recordsHash"></span></h5>
+                                <button type="submit" class="btn btn-info btn-lg" onclick="showRecords(this)">View medical records</button>
                                 
                             </div>
                             <pre id="records" style="margin-top: 20px;">
@@ -164,7 +140,7 @@
             
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="text-center">Share this Aircraft Information</h3>
+                    <h3 class="text-center">Share your Medical Record</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -176,11 +152,10 @@
                     
                     <form class="form-horizontal" action="/action_page.php">
                         <div class="form-group"> 
-                            <label for="permitDoctorList" class="control-label col-sm-2">Airline:</label>
+                            <label for="permitDoctorList" class="control-label col-sm-2">Doctor:</label>
                             <div class="col-sm-8">
                                 <select class="form-control" id="permitDoctorList">
                                     <option selected disabled>-- Please Select --</option>
-                                    <option value="1">Jonathan Air</option>
                                 </select>
                             </div>
                         </div>
@@ -193,7 +168,7 @@
             
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="text-center">Current Aircraft Information access holders</h3>
+                    <h3 class="text-center">Current EMR access holders</h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -205,15 +180,9 @@
                         <div class="col-sm-offset-1 col-sm-10">
                             <table id="accessDoc" class="table table-hover">
                                 <tr>
-                                    <th>Airline</th>
+                                    <th>Doctor</th>
                                     <th class="publicKeyDoctor">Public Key</th>
                                     <th>Revoke access</th>
-                                </tr>
-                                <tr>
-                                    <div class="col-sm-8"></div>
-                                    <td>Jonathan Airlines</td>
-                                    <td>0xdf72C112f8c5Ba0090F771b36c52c4BFa1887F69</td>
-                                    <td><button class="btn btn-primary btn-xs">Revoke</button></td>
                                 </tr>
                             </table>
                         </div>
@@ -341,7 +310,7 @@
                 console.error(error);
         });
 
-        // print out the Airlines who have access
+        // print out the doctors who have access
         var doctorAddressList = 0;
         contractInstance.get_accessed_doctorlist_for_patient(key, {gas: 1000000}, function(error, result){
             if(!error){
